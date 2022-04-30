@@ -7,9 +7,6 @@ import json
 DEVNULL = open(os.devnull, 'wb')
 
 START_PORT = 4321
-MIN_RPS = 10
-MAX_RPS = 40000
-NUM_RUNS = 165
 
 def singleBenchmark(server_configs, exp, exp_type, slowness, requestsPerSecond, requestSize, numNodes):
     rpsPerNode = int(requestsPerSecond / numNodes)
@@ -50,7 +47,6 @@ def singleBenchmark(server_configs, exp, exp_type, slowness, requestsPerSecond, 
 
     # Found the leader
     assert len(allLeaders) == numNodes
-    # print(server_pids)
 
     leader_pid = server_pids[allLeaders[0]]
     for server_config in server_configs:
@@ -75,7 +71,6 @@ def singleBenchmark(server_configs, exp, exp_type, slowness, requestsPerSecond, 
     # run fault injection
     fault_process_cmd = ["xonsh", "faults/fault_inject.xsh", "--exp", f"{exp}", "--slowness", f"{slowness}", "--server_configs", f"{json.dumps(fault_config)}", "--pids", f"{json.dumps(fault_pids)}"]
     subprocess.run(fault_process_cmd, stdout=subprocess.PIPE)
-
 
     for p in processes:
         out, err = p.communicate()
@@ -105,10 +100,12 @@ if __name__ == '__main__':
     parser.add_argument("--exp", type=str, default="noslow", help="kill/noslow/1/2")
     parser.add_argument("--exp_type", type=str, default="follower", help="leader/follower/both")
     parser.add_argument("--slowness", type=int, default=0, help="slowness")
+    parser.add_argument("--start_rps", type=int, default=0, help="start rps")
+    parser.add_argument("--n", type=int, default=0, help="number of iterations")
     opt = parser.parse_args()
 
     server_configs = config_parser(opt.server_configs)["servers"]
-    for i in range(165, NUM_RUNS + 1, 3):
+    for i in range(opt.start_rps, opt.n + 1, 3):
         for iter in range(1, opt.iters+1):
             singleBenchmark(server_configs, opt.exp, opt.exp_type, opt.slowness, 50*i, 10, 3)
         print('finished iteration %d' % i)
