@@ -1,0 +1,8 @@
+no_slow
+MAX THROUGHPUT: 8218
+kill
+MAX THROUGHPUT: 5500
+cpu_slow
+MAX THROUGHPUT: 2533
+memory_contention
+MAX THROUGHPUT: 5144

@@ -1,0 +1,20 @@
+{'localhost:4321': 53230, 'localhost:4322': 53231, 'localhost:4323': 53232}
+Process still running
+Process still running
+Process still running
+Process still running
+Process still running
+Process still running
+THROUGHPUT: 2312.12
+AVG LATENCY: 8.936651229858398
+THROUGHPUT: 2288.36
+AVG LATENCY: 9.068921566009521
+THROUGHPUT: 2389.12
+AVG LATENCY: 8.781001567840576
+{'localhost:4321': 53311, 'localhost:4322': 53310, 'localhost:4323': 53312}
+Process still running
+Process still running
+Process still running
+Process still running
+Process still running
+Process still running

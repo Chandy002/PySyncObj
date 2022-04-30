@@ -1,0 +1,23 @@
+{
+    "servers":
+    [
+        {
+            "name": "node1",
+            "ip": "localhost",
+            "cpu": 0,
+            "port_offset": 0
+        },
+        {
+            "name": "node2",
+            "ip": "localhost",
+            "cpu": 1,
+            "port_offset": 1
+        },
+        {
+            "name": "node3",
+            "ip": "localhost",
+            "cpu": 2,
+            "port_offset": 2
+        }
+    ]
+}

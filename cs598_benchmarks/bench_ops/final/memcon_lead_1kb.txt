@@ -1,0 +1,33 @@
+{'localhost:4321': 51897, 'localhost:4322': 51899, 'localhost:4323': 51898}
+Process still running
+Process still running
+Process still running
+Process still running
+Process still running
+Process still running
+THROUGHPUT: 4623.36
+AVG LATENCY: 0.639310359954834
+THROUGHPUT: 4430.72
+AVG LATENCY: 0.4687309265136719
+{'localhost:4321': 52043, 'localhost:4322': 52045, 'localhost:4323': 52044}
+Process still running
+Process still running
+Process still running
+Process still running
+Process still running
+Process still running
+THROUGHPUT: 4430.72
+AVG LATENCY: 0.7050621509552002
+THROUGHPUT: 4623.36
+AVG LATENCY: 0.12076163291931152
+{'localhost:4321': 52188, 'localhost:4322': 52190, 'localhost:4323': 52189}
+Process still running
+Process still running
+Process still running
+Process still running
+Process still running
+Process still running
+THROUGHPUT: 4512.6
+AVG LATENCY: 0.6003942489624023
+THROUGHPUT: 4623.36
+AVG LATENCY: 0.12409806251525879
