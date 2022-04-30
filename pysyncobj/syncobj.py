@@ -90,7 +90,7 @@ class SyncObjConsumer(object):
 
 # https://github.com/bakwc/PySyncObj
 
-class SyncObj(object):
+class SyncObj(object):    
     def __init__(self, selfNode, otherNodes, conf=None, consumers=None, nodeClass = TCPNode, transport = None, transportClass = TCPTransport):
         """
         Main SyncObj class, you should inherit your own class from it.

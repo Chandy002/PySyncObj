@@ -4,10 +4,8 @@ import sys
 import os
 import json
 
-
 def plot_cdf(directory):
-    colors = ['red', 'blue', 'green', '#ffc406']
-    labels = ['noslow', 'node crash', 'cpu slow', 'mem contention']
+    colors = ['#ffc406', 'green', 'blue', 'red']
     i = 0
     for file in os.listdir(directory):
         filename = os.fsdecode(file)
@@ -20,20 +18,19 @@ def plot_cdf(directory):
                 if toks[0] == 'DELAYS':
                     latencies += json.loads(toks[1].strip())
 
-            # print(latencies)
             data = np.sort(np.array(latencies))
             bins=np.append(data, data[-1]+1)
             counts, bin_edges = np.histogram(latencies, bins=bins, density=False)
             counts=counts.astype(float)/len(latencies)
             cdf = np.cumsum(counts)
-            plt.plot(bin_edges[0:-1], cdf, linestyle='--', color=colors[i], label=labels[i])
+            plt.plot(bin_edges[0:-1], cdf, linestyle='--', color=colors[i], label=filename.split('.')[0])
             plt.ylim((0,1))
             i += 1
 
     plt.legend()
     plt.ylabel('CDF')
     plt.xlabel('Latency (s)')
-    plt.title('Follower Latency vs CDF')   
+    plt.title('Follower Latency Vs. CDF')   
 
     plot_margin = 0.1
     x0, x1, y0, y1 = plt.axis()

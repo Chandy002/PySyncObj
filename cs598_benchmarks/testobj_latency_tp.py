@@ -7,6 +7,7 @@ import random
 from collections import defaultdict
 sys.path.append("../")
 from pysyncobj import SyncObj, replicated, SyncObjConf, FAIL_REASON
+import numpy as np
 
 class TestObj(SyncObj):
 
@@ -98,8 +99,10 @@ if __name__ == '__main__':
 
         delays = sorted(_g_delays)
         avgDelay = _g_delays[int(len(_g_delays) / 2)]
-        print('DELAYS:', _g_delays)
-        print('AVG LATENCY:', avgDelay)
+        # print('DELAYS:', _g_delays)
+        print('AVG LATENCY:', avgDelay)        
+        print('P90 LATENCY:', np.percentile(delays, 90))
+        print('P99 LATENCY:', np.percentile(delays, 99))
     except Exception as e:
         print(e)
         sys.exit(-1)
